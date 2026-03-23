@@ -40,11 +40,7 @@
     border: 1px solid rgba(196,113,74,0.1);
     pointer-events: none;
   }
-  .container {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
+  .container { max-width: 640px; margin: 0 auto; padding: 48px 24px 80px; }
   .key-card {
     background: var(--warm-white);
     border: 1px solid var(--border);
@@ -63,267 +59,113 @@
     background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light), var(--sand));
   }
   .key-icon {
-    font-size: 52px;
-    display: block;
-    text-align: center;
-    margin-bottom: 24px;
+    font-size: 52px; display: block; text-align: center; margin-bottom: 24px;
     animation: sway 3s ease-in-out infinite;
   }
   @keyframes sway {
     0%, 100% { transform: rotate(-8deg); }
     50%       { transform: rotate(8deg); }
   }
-  .bilingual {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    gap: 0 24px;
-    margin-bottom: 32px;
-  }
+  .bilingual { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 24px; margin-bottom: 32px; }
   .bilingual-divider { background: var(--border); align-self: stretch; }
   .lang-block h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.45rem;
-    font-weight: 600;
-    color: var(--brown);
-    line-height: 1.25;
-    margin-bottom: 8px;
-    text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600;
+    color: var(--brown); line-height: 1.25; margin-bottom: 8px; text-align: center;
   }
   .lang-block .subtitle {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--brown-light);
-    text-align: center;
-    font-size: 0.9rem;
-    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--brown-light); text-align: center; font-size: 0.9rem; margin-bottom: 16px;
   }
-  .lang-block .message {
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: var(--text-soft);
-    text-align: center;
-  }
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 28px 0;
-  }
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .lang-block .message { font-size: 0.92rem; line-height: 1.7; color: var(--text-soft); text-align: center; }
+  .divider { display: flex; align-items: center; gap: 14px; margin: 28px 0; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .divider span { font-size: 18px; color: var(--sand); }
   .contact-block {
     background: linear-gradient(135deg, rgba(196,113,74,0.06), rgba(232,213,183,0.2));
-    border: 1px solid rgba(196,113,74,0.2);
-    border-radius: 14px;
-    padding: 24px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    border: 1px solid rgba(196,113,74,0.2); border-radius: 14px; padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 14px;
   }
   .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.98rem;
-    transition: color 0.2s;
+    display: flex; align-items: center; gap: 14px; text-decoration: none;
+    color: var(--text); font-size: 0.98rem; transition: color 0.2s;
   }
   .contact-item:hover { color: var(--terracotta); }
   .contact-icon {
-    width: 38px; height: 38px;
-    background: var(--terracotta);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 17px;
-    flex-shrink: 0;
-    box-shadow: 0 3px 10px rgba(196,113,74,0.35);
+    width: 38px; height: 38px; background: var(--terracotta); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
+    flex-shrink: 0; box-shadow: 0 3px 10px rgba(196,113,74,0.35);
   }
   .contact-label { font-size: 0.75rem; color: var(--text-soft); display: block; margin-bottom: 1px; }
   .contact-value { font-weight: 700; color: var(--brown); }
-
-  /* MOT DE PASSE */
-  .pw-separator {
-    margin: 40px 0 0;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .pw-separator::before, .pw-separator::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .pw-separator { margin: 40px 0 0; display: flex; align-items: center; gap: 14px; }
+  .pw-separator::before, .pw-separator::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .pw-separator span { font-size: 18px; color: var(--sand); }
-  .pw-minimal {
-    margin-top: 24px;
-    display: flex;
-    gap: 10px;
-  }
+  .pw-minimal { margin-top: 24px; display: flex; gap: 10px; }
   .pw-input {
-    flex: 1;
-    padding: 12px 16px;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.95rem;
-    background: var(--cream);
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    flex: 1; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 10px;
+    font-family: 'Lato', sans-serif; font-size: 0.95rem; background: var(--cream);
+    color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
   }
   .pw-input::placeholder { color: #bba898; }
-  .pw-input:focus {
-    border-color: var(--terracotta);
-    box-shadow: 0 0 0 3px rgba(196,113,74,0.12);
-  }
-  .pw-input.error {
-    border-color: #d94f4f;
-    animation: shake 0.35s ease;
-  }
+  .pw-input:focus { border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(196,113,74,0.12); }
+  .pw-input.error { border-color: #d94f4f; animation: shake 0.35s ease; }
   @keyframes shake {
     0%,100% { transform: translateX(0); }
-    25%      { transform: translateX(-6px); }
-    75%      { transform: translateX(6px); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
   }
   .pw-btn {
-    padding: 12px 20px;
-    background: var(--terracotta);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 4px 14px rgba(196,113,74,0.35);
-    white-space: nowrap;
+    padding: 12px 20px; background: var(--terracotta); color: white; border: none;
+    border-radius: 10px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.9rem;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(196,113,74,0.35); white-space: nowrap;
   }
   .pw-btn:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
-
-  /* SECTION PROTÉGÉE */
-  #protected {
-    display: none;
-    animation: fadeUp 0.6s ease both;
-  }
+  .pw-checking { font-size: 0.82rem; color: var(--text-soft); text-align: center; margin-top: 10px; display: none; }
+  #protected { display: none; animation: fadeUp 0.6s ease both; }
   #protected.visible { display: block; }
-
   .manuel-welcome {
-    text-align: center;
-    padding: 32px 0 28px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 28px;
+    text-align: center; padding: 32px 0 28px;
+    border-bottom: 1px solid var(--border); margin-bottom: 28px;
   }
-  .manuel-welcome h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--brown);
-    margin-bottom: 6px;
-  }
-  .manuel-welcome p {
-    font-style: italic;
-    color: var(--text-soft);
-    font-size: 0.92rem;
-  }
-
-  .msection {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
+  .manuel-welcome h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--brown); margin-bottom: 6px; }
+  .manuel-welcome p { font-style: italic; color: var(--text-soft); font-size: 0.92rem; }
+  .msection { background: var(--cream); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
   .msection-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 22px;
+    display: flex; align-items: center; gap: 12px; padding: 16px 22px;
     background: linear-gradient(90deg, rgba(196,113,74,0.08), transparent);
     border-bottom: 1px solid var(--border);
   }
-  .msection-head h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    color: var(--brown);
-  }
+  .msection-head h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); }
   .msection-head .sec-icon { font-size: 20px; }
   .msection-body { padding: 18px 22px; }
-
   .irow {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 9px 0;
-    border-bottom: 1px solid rgba(221,201,176,0.4);
-    font-size: 0.9rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 20px; padding: 9px 0; border-bottom: 1px solid rgba(221,201,176,0.4); font-size: 0.9rem;
   }
   .irow:last-child { border-bottom: none; padding-bottom: 0; }
   .irow-label { color: var(--text-soft); flex-shrink: 0; max-width: 50%; }
   .irow-val { font-weight: 700; color: var(--brown); text-align: right; }
   .irow-val.mono {
-    font-family: 'Courier New', monospace;
-    background: rgba(196,113,74,0.08);
-    padding: 2px 9px;
-    border-radius: 5px;
-    font-weight: 400;
-    color: var(--terracotta-dark);
-    font-size: 0.95rem;
+    font-family: 'Courier New', monospace; background: rgba(196,113,74,0.08);
+    padding: 2px 9px; border-radius: 5px; font-weight: 400;
+    color: var(--terracotta-dark); font-size: 0.95rem;
   }
-  a.irow-val {
-    color: var(--terracotta);
-    text-decoration: none;
-  }
+  a.irow-val { color: var(--terracotta); text-decoration: none; }
   a.irow-val:hover { text-decoration: underline; }
-
-  .note-block {
-    background: rgba(196,113,74,0.07);
-    border-left: 3px solid var(--terracotta);
-    border-radius: 0 8px 8px 0;
-    padding: 12px 16px;
-    margin-top: 14px;
-    font-size: 0.88rem;
-    color: var(--text-soft);
-    line-height: 1.65;
-  }
-
   .ilist { list-style: none; counter-reset: step; }
   .ilist li {
-    counter-increment: step;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(221,201,176,0.35);
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: var(--text);
+    counter-increment: step; display: flex; gap: 12px; align-items: flex-start;
+    padding: 8px 0; border-bottom: 1px solid rgba(221,201,176,0.35);
+    font-size: 0.9rem; line-height: 1.55; color: var(--text);
   }
   .ilist li:last-child { border-bottom: none; }
   .ilist li::before {
-    content: counter(step);
-    min-width: 22px; height: 22px;
-    background: var(--terracotta);
-    color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
+    content: counter(step); min-width: 22px; height: 22px; background: var(--terracotta);
+    color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
   }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 520px) {
     .key-card { padding: 36px 20px; }
     .bilingual { grid-template-columns: 1fr; gap: 20px 0; }
@@ -339,7 +181,6 @@
 <div class="container">
   <div class="key-card">
 
-    <!-- SECTION PUBLIQUE -->
     <div id="public-section">
       <span class="key-icon">🔑</span>
       <div class="bilingual">
@@ -374,29 +215,22 @@
       </div>
     </div>
 
-    <!-- MOT DE PASSE -->
     <div class="pw-separator" id="pwSep"><span>🏠</span></div>
     <div class="pw-minimal" id="pwForm">
-      <input
-        type="password"
-        id="pwInput"
-        class="pw-input"
+      <input type="password" id="pwInput" class="pw-input"
         placeholder="Mot de passe · Password"
         onkeydown="if(event.key==='Enter') checkPassword()"
-        autocomplete="current-password"
-      />
-      <button class="pw-btn" onclick="checkPassword()">Accéder →</button>
+        autocomplete="current-password" />
+      <button class="pw-btn" id="pwBtn" onclick="checkPassword()">Accéder →</button>
     </div>
+    <p class="pw-checking" id="pwChecking">Vérification…</p>
 
-    <!-- SECTION PROTÉGÉE -->
     <div id="protected">
-
       <div class="manuel-welcome">
         <h2>Bienvenue au 2202 ✨</h2>
         <p>2320 rue Tupper, Montréal H3H 0B8</p>
       </div>
 
-      <!-- ADRESSE & STATIONNEMENT -->
       <div class="msection">
         <div class="msection-head">
           <span class="sec-icon">📍</span>
@@ -418,7 +252,6 @@
         </div>
       </div>
 
-      <!-- STATIONNEMENT GRATUIT -->
       <div class="msection">
         <div class="msection-head">
           <span class="sec-icon">🚗</span>
@@ -432,7 +265,6 @@
         </div>
       </div>
 
-      <!-- CONTACTS D'URGENCE -->
       <div class="msection">
         <div class="msection-head">
           <span class="sec-icon">🆘</span>
@@ -458,23 +290,39 @@
         </div>
       </div>
 
-    </div><!-- fin #protected -->
-  </div><!-- fin .key-card -->
+    </div>
+  </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 <script>
-  const PASSWORD = "Expo67";
-  function checkPassword() {
+  const HASH = "$2b$12$IVTHijHmFhSPgrLYQMD6O.juqL6ukpIRU03AE514d/h.5auI/Ixgi";
+
+  async function checkPassword() {
     const input = document.getElementById('pwInput');
-    if (input.value.trim() === PASSWORD) {
+    const btn = document.getElementById('pwBtn');
+    const checking = document.getElementById('pwChecking');
+    const val = input.value.trim();
+    if (!val) return;
+
+    btn.disabled = true;
+    btn.textContent = '…';
+    checking.style.display = 'block';
+
+    const match = await dcodeIO.bcrypt.compare(val, HASH);
+
+    if (match) {
       document.getElementById('public-section').style.display = 'none';
       document.getElementById('pwSep').style.display = 'none';
       document.getElementById('pwForm').style.display = 'none';
-      const p = document.getElementById('protected');
-      p.classList.add('visible');
+      checking.style.display = 'none';
+      document.getElementById('protected').classList.add('visible');
     } else {
+      checking.style.display = 'none';
       input.classList.add('error');
       input.value = '';
+      btn.disabled = false;
+      btn.textContent = 'Accéder →';
       setTimeout(() => input.classList.remove('error'), 400);
     }
   }
