@@ -547,9 +547,9 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+
 <script>
-  const HASH = "$2b$12$IVTHijHmFhSPgrLYQMD6O.juqL6ukpIRU03AE514d/h.5auI/Ixgi";
+  const HASH = "abc9bfb46f1fb6f51d29b0de1a809aff72c82d8f5ecdf6746ff5313648b1b187";
 
   function spawnParticles() {
     const container = document.getElementById('particles');
@@ -623,7 +623,9 @@
     btn.textContent = '…';
     checking.style.display = 'block';
 
-    const match = await dcodeIO.bcrypt.compare(val, HASH);
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(val));
+    const hash = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    const match = hash === HASH;
 
     if (match) {
       checking.style.display = 'none';
