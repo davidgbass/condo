@@ -549,111 +549,93 @@
 
 
 <script>
-  const HASH = "abc9bfb46f1fb6f51d29b0de1a809aff72c82d8f5ecdf6746ff5313648b1b187";
-
-  function spawnParticles() {
-    const container = document.getElementById('particles');
-    const card = document.getElementById('card');
-    const w = card.offsetWidth;
-    const h = card.offsetHeight;
-    const colors = [
-      '#e8601c','#e8601c',
-      '#1a6fb5','#1a6fb5',
-      '#00884a','#00884a',
-      '#f5c400','#f5c400',
-      '#f28c5e','#5aaee0','#4db87a','#ffe066'
-    ];
-    container.innerHTML = '';
-    for (let i = 0; i < 36; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const x = 0.2*w + Math.random() * 0.6*w;
-      const y = 0.2*h + Math.random() * 0.6*h;
-      const angle = Math.random() * Math.PI * 2;
-      const dist = 120 + Math.random() * 200;
-      const dx = Math.cos(angle) * dist;
-      const dy = Math.sin(angle) * dist;
-      const size = 5 + Math.random() * 9;
-      const delay = (Math.random() * 0.6).toFixed(2);
-      const dur = (1.4 + Math.random() * 0.8).toFixed(2);
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      p.style.cssText = `
-        left:${x}px; top:${y}px;
-        width:${size}px; height:${size}px;
-        background:${color};
-        --drift: translate(${dx}px,${dy}px);
-        --delay: ${delay}s;
-        --dur: ${dur}s;
-      `;
-      container.appendChild(p);
-      requestAnimationFrame(() => p.classList.add('go'));
-    }
-  }
+  // Mot de passe encodé pour éviter toute interférence
+  var _p = [69,120,112,111,54,55].map(function(c){return String.fromCharCode(c);}).join('');
 
   function closeFrite() {
     document.getElementById('friteBackdrop').classList.remove('show');
   }
 
+  function spawnParticles() {
+    var container = document.getElementById('particles');
+    var card = document.getElementById('card');
+    var w = card.offsetWidth;
+    var h = card.offsetHeight;
+    var colors = ['#e8601c','#e8601c','#1a6fb5','#1a6fb5','#00884a','#00884a','#f5c400','#f5c400','#f28c5e','#5aaee0','#4db87a','#ffe066'];
+    container.innerHTML = '';
+    for (var i = 0; i < 36; i++) {
+      var p = document.createElement('div');
+      p.className = 'particle';
+      var x = 0.2*w + Math.random() * 0.6*w;
+      var y = 0.2*h + Math.random() * 0.6*h;
+      var angle = Math.random() * Math.PI * 2;
+      var dist = 120 + Math.random() * 200;
+      var dx = Math.cos(angle) * dist;
+      var dy = Math.sin(angle) * dist;
+      var size = 5 + Math.random() * 9;
+      var delay = (Math.random() * 0.6).toFixed(2);
+      var dur = (1.4 + Math.random() * 0.8).toFixed(2);
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      p.style.cssText = 'left:'+x+'px;top:'+y+'px;width:'+size+'px;height:'+size+'px;background:'+color+';--drift:translate('+dx+'px,'+dy+'px);--delay:'+delay+'s;--dur:'+dur+'s;';
+      container.appendChild(p);
+      (function(el){ requestAnimationFrame(function(){ el.classList.add('go'); }); })(p);
+    }
+  }
+
   function revealSections() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Dots métro en cascade
-    [1,2,3,4].forEach((n,i) => {
-      setTimeout(() => document.getElementById('dot'+n).classList.add('pop'), 800 + i*120);
+    [1,2,3,4].forEach(function(n,i){
+      setTimeout(function(){ var d = document.getElementById('dot'+n); if(d) d.classList.add('pop'); }, 800 + i*120);
     });
-    // Hero
-    setTimeout(() => document.getElementById('welcomeHero').classList.add('reveal'), 300);
-    // Sections avec délais généreux
-    ['sec1','sec2','sec3'].forEach((id, i) => {
-      setTimeout(() => document.getElementById(id).classList.add('reveal'), 900 + i * 280);
+    setTimeout(function(){ var h = document.getElementById('welcomeHero'); if(h) h.classList.add('reveal'); }, 300);
+    ['sec1','sec2','sec3'].forEach(function(id, i){
+      setTimeout(function(){ var s = document.getElementById(id); if(s) s.classList.add('reveal'); }, 900 + i * 280);
     });
-    // Pop-up frite après que tout soit apparu
-    setTimeout(() => {
+    setTimeout(function(){
       document.getElementById('friteBackdrop').classList.add('show');
     }, 900 + 3 * 280 + 800);
   }
 
-  async function checkPassword() {
-    const input = document.getElementById('pwInput');
-    const btn = document.getElementById('pwBtn');
-    const checking = document.getElementById('pwChecking');
-    const val = input.value.trim();
+  function checkPassword() {
+    var input = document.getElementById('pwInput');
+    var btn = document.getElementById('pwBtn');
+    var val = input.value;
     if (!val) return;
 
-    btn.disabled = true;
-    btn.textContent = '…';
-    checking.style.display = 'block';
+    if (val === _p) {
+      // Correct
+      document.getElementById('public-section').style.transition = 'opacity 0.5s';
+      document.getElementById('public-section').style.opacity = '0';
+      document.getElementById('pwSep').style.opacity = '0';
+      document.getElementById('pwForm').style.opacity = '0';
 
-    let match = false;
-    try {
-      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(val));
-      const hash = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-      match = (hash === HASH);
-    } catch(e) {
-      // Fallback : comparaison directe (si crypto.subtle indisponible)
-      match = (val === 'Expo67');
-    }
-
-    if (match) {
-      checking.style.display = 'none';
-
-      // Flash + particules
       document.getElementById('flashOverlay').classList.add('go');
       spawnParticles();
       document.getElementById('card').classList.add('unlocked');
 
-      // Fade out section publique
-      document.getElementById('public-section').classList.add('fade-out');
-      document.getElementById('pwSep').style.opacity = '0';
-      document.getElementById('pwForm').style.opacity = '0';
-
-      // Cacher puis révéler
-      setTimeout(() => {
+      setTimeout(function(){
         document.getElementById('public-section').style.display = 'none';
         document.getElementById('pwSep').style.display = 'none';
         document.getElementById('pwForm').style.display = 'none';
         document.getElementById('protected').classList.add('visible');
         revealSections();
-      }, 750);
+      }, 600);
 
     } else {
-      checking.s
+      // Incorrect
+      input.classList.add('error');
+      input.value = '';
+      btn.textContent = 'Accéder →';
+      setTimeout(function(){ input.classList.remove('error'); }, 400);
+    }
+  }
+
+  function setEmail(el) {
+    var u = 'david.g.bass'; var d = 'gmail.com';
+    el.href = 'mailto:' + u + '@' + d;
+    el.onclick = null;
+    el.click();
+  }
+</script>
+</body>
+</html>
