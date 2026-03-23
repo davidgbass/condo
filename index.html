@@ -45,8 +45,6 @@
     margin: 0 auto;
     padding: 48px 24px 80px;
   }
-
-  /* ── CARTE PRINCIPALE ── */
   .key-card {
     background: var(--warm-white);
     border: 1px solid var(--border);
@@ -75,18 +73,13 @@
     0%, 100% { transform: rotate(-8deg); }
     50%       { transform: rotate(8deg); }
   }
-
-  /* ── BLOC BILINGUE ── */
   .bilingual {
     display: grid;
     grid-template-columns: 1fr 1px 1fr;
     gap: 0 24px;
     margin-bottom: 32px;
   }
-  .bilingual-divider {
-    background: var(--border);
-    align-self: stretch;
-  }
+  .bilingual-divider { background: var(--border); align-self: stretch; }
   .lang-block h1 {
     font-family: 'Playfair Display', serif;
     font-size: 1.45rem;
@@ -110,7 +103,6 @@
     color: var(--text-soft);
     text-align: center;
   }
-
   .divider {
     display: flex;
     align-items: center;
@@ -124,7 +116,6 @@
     background: var(--border);
   }
   .divider span { font-size: 18px; color: var(--sand); }
-
   .contact-block {
     background: linear-gradient(135deg, rgba(196,113,74,0.06), rgba(232,213,183,0.2));
     border: 1px solid rgba(196,113,74,0.2);
@@ -156,7 +147,7 @@
   .contact-label { font-size: 0.75rem; color: var(--text-soft); display: block; margin-bottom: 1px; }
   .contact-value { font-weight: 700; color: var(--brown); }
 
-  /* ── MOT DE PASSE ── */
+  /* MOT DE PASSE */
   .pw-separator {
     margin: 40px 0 0;
     display: flex;
@@ -217,21 +208,18 @@
   }
   .pw-btn:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
 
-  /* ══════════════════════════════════════ */
-  /* SECTION PROTÉGÉE — MANUEL             */
-  /* ══════════════════════════════════════ */
+  /* SECTION PROTÉGÉE */
   #protected {
     display: none;
-    margin-top: 32px;
     animation: fadeUp 0.6s ease both;
   }
   #protected.visible { display: block; }
 
   .manuel-welcome {
     text-align: center;
-    padding: 24px 0 32px;
+    padding: 32px 0 28px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   .manuel-welcome h2 {
     font-family: 'Playfair Display', serif;
@@ -245,7 +233,6 @@
     font-size: 0.92rem;
   }
 
-  /* Sections du manuel */
   .msection {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -269,7 +256,6 @@
   .msection-head .sec-icon { font-size: 20px; }
   .msection-body { padding: 18px 22px; }
 
-  /* Rangées d'info */
   .irow {
     display: flex;
     justify-content: space-between;
@@ -297,19 +283,6 @@
   }
   a.irow-val:hover { text-decoration: underline; }
 
-  /* Bilingual badge dans le manuel */
-  .bilabel {
-    display: inline-block;
-    font-size: 0.72rem;
-    background: rgba(196,113,74,0.12);
-    color: var(--terracotta-dark);
-    border-radius: 4px;
-    padding: 1px 6px;
-    margin-left: 6px;
-    font-style: italic;
-    font-weight: 400;
-  }
-
   .note-block {
     background: rgba(196,113,74,0.07);
     border-left: 3px solid var(--terracotta);
@@ -321,7 +294,6 @@
     line-height: 1.65;
   }
 
-  /* Listes numérotées */
   .ilist { list-style: none; counter-reset: step; }
   .ilist li {
     counter-increment: step;
@@ -352,7 +324,6 @@
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   @media (max-width: 520px) {
     .key-card { padding: 36px 20px; }
     .bilingual { grid-template-columns: 1fr; gap: 20px 0; }
@@ -368,45 +339,43 @@
 <div class="container">
   <div class="key-card">
 
-    <!-- ══ SECTION PUBLIQUE BILINGUE ══ -->
-    <span class="key-icon">🔑</span>
-
-    <div class="bilingual">
-      <div class="lang-block">
-        <h1>Vous avez trouvé mes clés ?</h1>
-        <p class="subtitle">Merci de votre honnêteté —<br>elles me sont précieuses.</p>
-        <p class="message">Bonjour ! J'aimerais vraiment récupérer mes clés. N'hésitez pas à me contacter — je serai plus que reconnaissant de votre geste !</p>
+    <!-- SECTION PUBLIQUE -->
+    <div id="public-section">
+      <span class="key-icon">🔑</span>
+      <div class="bilingual">
+        <div class="lang-block">
+          <h1>Vous avez trouvé mes clés ?</h1>
+          <p class="subtitle">Merci de votre honnêteté —<br>elles me sont précieuses.</p>
+          <p class="message">Bonjour ! J'aimerais vraiment récupérer mes clés. N'hésitez pas à me contacter — je serai plus que reconnaissant de votre geste !</p>
+        </div>
+        <div class="bilingual-divider"></div>
+        <div class="lang-block">
+          <h1>Found my keys?</h1>
+          <p class="subtitle">Thank you for your honesty —<br>they mean a lot to me.</p>
+          <p class="message">Hi! I'd really love to get my keys back. Please don't hesitate to reach out — I will be truly grateful!</p>
+        </div>
       </div>
-      <div class="bilingual-divider"></div>
-      <div class="lang-block">
-        <h1>Found my keys?</h1>
-        <p class="subtitle">Thank you for your honesty —<br>they mean a lot to me.</p>
-        <p class="message">Hi! I'd really love to get my keys back. Please don't hesitate to reach out — I will be truly grateful!</p>
+      <div class="divider"><span>✦</span></div>
+      <div class="contact-block">
+        <a class="contact-item" href="tel:5145026446">
+          <div class="contact-icon">📞</div>
+          <div>
+            <span class="contact-label">Téléphone · Phone</span>
+            <span class="contact-value">514 502-6446</span>
+          </div>
+        </a>
+        <a class="contact-item" href="mailto:david.g.bass@gmail.com">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <span class="contact-label">Courriel · Email</span>
+            <span class="contact-value">david.g.bass@gmail.com</span>
+          </div>
+        </a>
       </div>
     </div>
 
-    <div class="divider"><span>✦</span></div>
-
-    <div class="contact-block">
-      <a class="contact-item" href="tel:5145026446">
-        <div class="contact-icon">📞</div>
-        <div>
-          <span class="contact-label">Téléphone · Phone</span>
-          <span class="contact-value">514 502-6446</span>
-        </div>
-      </a>
-      <a class="contact-item" href="mailto:david.g.bass@gmail.com">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <span class="contact-label">Courriel · Email</span>
-          <span class="contact-value">david.g.bass@gmail.com</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- ══ MOT DE PASSE ══ -->
-    <div class="pw-separator"><span>🏠</span></div>
-
+    <!-- MOT DE PASSE -->
+    <div class="pw-separator" id="pwSep"><span>🏠</span></div>
     <div class="pw-minimal" id="pwForm">
       <input
         type="password"
@@ -419,9 +388,7 @@
       <button class="pw-btn" onclick="checkPassword()">Accéder →</button>
     </div>
 
-    <!-- ══════════════════════════════════════ -->
-    <!-- MANUEL PROTÉGÉ                         -->
-    <!-- ══════════════════════════════════════ -->
+    <!-- SECTION PROTÉGÉE -->
     <div id="protected">
 
       <div class="manuel-welcome">
@@ -429,11 +396,11 @@
         <p>2320 rue Tupper, Montréal H3H 0B8</p>
       </div>
 
-      <!-- ADRESSE & UNITÉ -->
+      <!-- ADRESSE & STATIONNEMENT -->
       <div class="msection">
         <div class="msection-head">
           <span class="sec-icon">📍</span>
-          <h3>Adresse & Unité</h3>
+          <h3>Adresse & Stationnement</h3>
         </div>
         <div class="msection-body">
           <div class="irow">
@@ -448,85 +415,10 @@
             <span class="irow-label">Stationnement / Parking</span>
             <span class="irow-val mono">SS2-131</span>
           </div>
-          <div class="irow">
-            <span class="irow-label">Rangement / Storage</span>
-            <span class="irow-val mono">Local S250 · Casier RC452</span>
-          </div>
         </div>
       </div>
 
-      <!-- ADMINISTRATION -->
-      <div class="msection">
-        <div class="msection-head">
-          <span class="sec-icon">🏢</span>
-          <h3>Administration de l'immeuble <span class="bilabel">Building Management</span></h3>
-        </div>
-        <div class="msection-body">
-          <div class="irow">
-            <span class="irow-label">Syndicat / Corporation</span>
-            <span class="irow-val">Syndicat Children Tour ESTWEST<br><small style="font-weight:400; color:var(--text-soft)">2300 et 2320 rue Tupper</small></span>
-          </div>
-          <div class="irow">
-            <span class="irow-label">Heures / Hours</span>
-            <span class="irow-val">Lun–Ven 8h–16h<br><small style="font-weight:400">Mon–Fri 8am–4pm</small></span>
-          </div>
-          <div class="irow">
-            <span class="irow-label">Contact</span>
-            <span class="irow-val">Richard Dubé</span>
-          </div>
-          <div class="irow">
-            <span class="irow-label">Téléphone</span>
-            <a class="irow-val" href="tel:5149876000">514-987-6000 poste 230</a>
-          </div>
-          <div class="irow">
-            <span class="irow-label">Courriel / Email</span>
-            <a class="irow-val" href="mailto:administration@estwest.ca">administration@estwest.ca</a>
-          </div>
-          <div class="irow">
-            <span class="irow-label">Adresse postale / Mail</span>
-            <span class="irow-val">2320 rue Tupper, suite 100<br>Montréal QC H3H 0B8</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SÉCURITÉ -->
-      <div class="msection">
-        <div class="msection-head">
-          <span class="sec-icon">🔐</span>
-          <h3>Sécurité 24/7 <span class="bilabel">Security</span></h3>
-        </div>
-        <div class="msection-body">
-          <div class="irow">
-            <span class="irow-label">Urgences non-911<br><small>Non-911 emergencies</small></span>
-            <a class="irow-val" href="tel:4385435998">438-543-5998</a>
-          </div>
-          <div class="note-block">
-            ℹ️ Pour les situations urgentes non-criminelles (ex : dégât d'eau, accès, bruit).<br>
-            <em>For urgent non-criminal situations (e.g. flooding, access, noise).</em>
-          </div>
-        </div>
-      </div>
-
-      <!-- PORTAIL RÉSIDENTS -->
-      <div class="msection">
-        <div class="msection-head">
-          <span class="sec-icon">💻</span>
-          <h3>Portail résidents <span class="bilabel">Resident Portal</span></h3>
-        </div>
-        <div class="msection-body">
-          <div class="irow">
-            <span class="irow-label">Site web / Website</span>
-            <a class="irow-val" href="https://www.condomanager.com" target="_blank">condomanager.com</a>
-          </div>
-          <div class="note-block">
-            États de comptes, réservations d'espaces, etc.<br>
-            <em>Account statements, amenity reservations, etc.</em><br><br>
-            Demandez votre accès au besoin · <em>Request password if needed.</em>
-          </div>
-        </div>
-      </div>
-
-      <!-- STATIONNEMENT SANS VIGNETTE -->
+      <!-- STATIONNEMENT GRATUIT -->
       <div class="msection">
         <div class="msection-head">
           <span class="sec-icon">🚗</span>
@@ -540,16 +432,20 @@
         </div>
       </div>
 
-      <!-- URGENCES -->
+      <!-- CONTACTS D'URGENCE -->
       <div class="msection">
         <div class="msection-head">
           <span class="sec-icon">🆘</span>
-          <h3>Contacts d'urgence <span class="bilabel">Emergency Contacts</span></h3>
+          <h3>Contacts</h3>
         </div>
         <div class="msection-body">
           <div class="irow">
-            <span class="irow-label">Propriétaire / Owner</span>
+            <span class="irow-label">David</span>
             <a class="irow-val" href="tel:5145026446">514 502-6446</a>
+          </div>
+          <div class="irow">
+            <span class="irow-label">Émilie</span>
+            <a class="irow-val" href="tel:5147100645">514 710-0645</a>
           </div>
           <div class="irow">
             <span class="irow-label">Urgences / 911</span>
@@ -564,18 +460,18 @@
 
     </div><!-- fin #protected -->
   </div><!-- fin .key-card -->
-</div><!-- fin .container -->
+</div>
 
 <script>
   const PASSWORD = "Expo67";
   function checkPassword() {
     const input = document.getElementById('pwInput');
     if (input.value.trim() === PASSWORD) {
+      document.getElementById('public-section').style.display = 'none';
+      document.getElementById('pwSep').style.display = 'none';
       document.getElementById('pwForm').style.display = 'none';
-      document.querySelector('.pw-separator').style.display = 'none';
       const p = document.getElementById('protected');
       p.classList.add('visible');
-      setTimeout(() => p.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } else {
       input.classList.add('error');
       input.value = '';
