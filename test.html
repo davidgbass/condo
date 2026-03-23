@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<input type="password" id="pw" placeholder="Mot de passe" />
+<button onclick="check()">Accéder</button>
+<div id="result" style="display:none; color:green; font-size:20px;">✅ Ça marche !</div>
+<script>
+  var _p = [69,120,112,111,54,55].map(function(c){return String.fromCharCode(c);}).join('');
+  function check() {
+    var val = document.getElementById('pw').value;
+    alert('Valeur saisie: ' + val + ' | Attendu: ' + _p + ' | Match: ' + (val === _p));
+    if (val === _p) {
+      document.getElementById('result').style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
