@@ -1,0 +1,11 @@
+# Le script de build contient le contenu privé en clair (adresse, codes, etc.).
+# Garder local — ne jamais committer.
+build.py
+
+# Système
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
