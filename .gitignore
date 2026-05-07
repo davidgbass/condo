@@ -9,3 +9,6 @@ build.py
 __pycache__/
 *.pyc
 .venv/
+
+# Maquettes locales d'exploration visuelle (jamais déployées)
+preview/
