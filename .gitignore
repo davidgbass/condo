@@ -2,6 +2,9 @@
 # Garder local — ne jamais committer.
 build.py
 
+# Sauvegardes locales (build.py.bak contient le contenu privé en clair).
+*.bak
+
 # Système
 .DS_Store
 
